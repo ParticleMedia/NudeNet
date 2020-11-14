@@ -38,7 +38,6 @@ class NudenetService:
                 pass
         return result_1
 
-
     @staticmethod
     def set_http_service(port):
         host = get_ip()

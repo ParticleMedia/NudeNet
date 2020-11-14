@@ -3,6 +3,7 @@ import cv2
 import pydload
 import logging
 import numpy as np
+from io import BytesIO
 
 from PIL import Image as pil_image
 
@@ -51,6 +52,8 @@ def load_img(
         )
 
     if isinstance(path, type("")):
+        img = pil_image.open(path)
+    elif isinstance(path, BytesIO):
         img = pil_image.open(path)
     else:
         path = cv2.cvtColor(path, cv2.COLOR_BGR2RGB)

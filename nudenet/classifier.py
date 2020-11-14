@@ -7,7 +7,6 @@ import numpy as np
 from .video_utils import get_interest_frames_from_video
 from .image_utils import load_images
 from PIL import Image as pil_image
-from io import BytesIO
 
 import tensorflow as tf
 
@@ -114,7 +113,7 @@ class Classifier:
                 image_size: size to which the image needs to be resized
                 categories: since the model predicts numbers, categories is the list of actual names of categories
         """
-        if isinstance(image_paths, str) or isinstance(image_paths, BytesIO):
+        if isinstance(image_paths, str):
             image_paths = [image_paths]
 
         loaded_images, loaded_image_paths = load_images(
